@@ -3,7 +3,7 @@
 document.getElementById("button-date").addEventListener("click", ()=>{eel.get_date()}, false);
 document.getElementById("button-ip").addEventListener("click", ()=>{eel.get_ip()}, false); */
 
-resizeTo(1400, 880)
+resizeTo(1400, 920)
 //document.getElementById('spinner-div').style.display = 'none'
 
 
