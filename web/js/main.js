@@ -54,6 +54,7 @@ inputElement.addEventListener('change', async (e) => {
 
 document.getElementById('range-inputs').style.display = 'none';
 document.getElementById('grayscale_select').addEventListener('change',async ()=>{
+    reset_sharpenSelect();
     let v = document.getElementById('grayscale_select').value;
     if(v === 'range'){
         document.getElementById('range-inputs').style.display = 'block';
@@ -71,36 +72,14 @@ document.getElementById('grayscale_select').addEventListener('change',async ()=>
     }
 })
 
-document.getElementById('espacial_select').style.display = 'none';
-document.getElementById('frecuencial_select').style.display = 'none';
-document.getElementById('sharpen_select').addEventListener('change',()=>{
+document.getElementById('sharpen_select').addEventListener('change',async ()=>{
+    reset_grayscaleSelect();
     let v = document.getElementById('sharpen_select').value;
-    if(v === 'espacial'){
-        document.getElementById('espacial_select').style.display = 'block';
-        document.getElementById('frecuencial_select').style.display = 'none';
-    }else if(v === 'frecuencial'){
-        document.getElementById('espacial_select').style.display = 'none';
-        document.getElementById('frecuencial_select').style.display = 'block';
-    }else if(v === '0'){
-        document.getElementById('espacial_select').style.display = 'none';
-        document.getElementById('frecuencial_select').style.display = 'none';
-    }
-})
-
-document.getElementById('espacial_select').addEventListener('change',async ()=>{
-    let v = document.getElementById('espacial_select').value;
     if(v === '3'){
         imgOutElement.src = "data:image/png;base64," + await eel.sharpen_space_3x3(originalImg_Buffer)();
     }else if(v === '5'){
         imgOutElement.src = "data:image/png;base64," + await eel.sharpen_space_5x5(originalImg_Buffer)();
-    }else if(v === '0'){
-        imgOutElement.src = originalImg_Buffer;
-    }
-})
-
-document.getElementById('frecuencial_select').addEventListener('change',async ()=>{
-    let v = document.getElementById('frecuencial_select').value;
-    if(v === 'highpass'){
+    }else if(v === 'highpass'){
         imgOutElement.src = "data:image/png;base64," + await eel.sharpen_freq_pasoAlto_histEq(originalImg_Buffer)();
     }else if(v === 'unsharp'){
         imgOutElement.src = "data:image/png;base64," + await eel.sharpen_freq_unsharpMasking(originalImg_Buffer)();
@@ -167,4 +146,13 @@ function successAlert(){
 
 function habilitar_guardado(){
     document.getElementById('guardar-btn').disabled = false;
+}
+
+function reset_sharpenSelect(){
+    document.getElementById('sharpen_select').value = '0';
+}
+
+function reset_grayscaleSelect(){
+    document.getElementById('grayscale_select').value = '0';
+    document.getElementById('range-inputs').style.display = 'none';
 }

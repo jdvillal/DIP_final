@@ -76,20 +76,9 @@
           <h3>Sharpen</h3>
           <select id="sharpen_select" class="form-select" aria-label="Default select example">
             <option selected value="0">Seleccione un dominio </option>
-            <option value="espacial">Dom. Espacial</option>
-            <option value="frecuencial">Dom. Frecuencial</option>
-          </select>
-
-          <select id="espacial_select" class="form-select" aria-label="Default select example">
-            <option value="0" selected>Seleccione el tamaño de la mascara</option>
-            <option value="3">3x3</option>
-            <option value="5">5x5</option>
-          </select>
-
-          <select id="frecuencial_select" class="form-select" aria-label="Default select example">
-            <option selected value="0">Seleccione un tipo de filtro</option>
-            <!-- <option value="highpass">Paso Alto</option> -->
-            <option value="highpass">Paso Alto</option>
+            <option value="3">Máscara 3x3</option>
+            <option value="5">Máscara 5x5</option>
+            <option value="highpass">Contornos</option>
             <option value="unsharp">Unsharp Masking</option>
           </select>
         </div>
@@ -118,7 +107,7 @@
 
   <!-- Button trigger modal -->
   <div class="d-flex">
-    <button id="guardar-btn" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="margin:auto;" disabled="true">
+    <button id="guardar-btn" type="button" class="btn btn-primary mt-2 px-4" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="margin:auto;" disabled="true">
       Guardar
     </button>
   </div>
