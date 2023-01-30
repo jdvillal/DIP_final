@@ -47,6 +47,8 @@ inputElement.addEventListener('change', async (e) => {
     fReader.readAsDataURL(inputElement.files[0]);
     fReader.onloadend = async function(event){
         originalImg_Buffer = event.target.result;
+        reset_grayscaleSelect();
+        reset_sharpenSelect();
         habilitar_guardado();
     }
 
